@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+
+    <title>SatoshiStays</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SatoshiStays</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Host</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-section">
+        <h1>Find your next stay</h1>
+      <form hx-get="/search" hx-target="#listings" hx-trigger="submit">
+          <input type="text" name="name" placeholder="Try 'Hotel Princess'" class="search-input">
+          <!-- Change the button type to submit -->
+          <button type="submit" class="search-btn">Search</button>
+      </form>
+    </section>
+
+    <section class="featured-listings" id="listings">
+        <h2>Featured Listings</h2>
+        <div class="listings-grid">
+            <!-- Example listing -->
+            <div class="listing">
+                <img src="placeholder.jpg" alt="Listing Image">
+                <div class="listing-info">
+                    <h3>Cozy Cottage</h3>
+                    <p>$99/night</p>
+                </div>
+            </div>
+            <!-- Add more listings here -->
+        </div>
+    </section>
+</body>
+</html>
